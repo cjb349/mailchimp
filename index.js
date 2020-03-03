@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json()) 
 bodyParser.urlencoded({extended: true})
 
-app.listen('3000', ()=>(
+app.listen(process.env.PORT || 3000, ()=>(
     console.log("lisenting on port 3000")
 ))
 
@@ -35,7 +35,7 @@ app.post('/', (req, res) => {
     }
        
     var JSONdata = JSON.stringify(data)
-    res.send(JSONdata)
+
     var options = {
         method: 'POST',
         auth: 'collin:e9c674c981249634ae89545ff9e88799-us19' 
